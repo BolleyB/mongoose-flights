@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New Ticket</title>
+    <!-- Add any additional styling or scripts here -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Create New Ticket</h1>
+      <form action="/flights/<%= flightId %>/tickets" method="POST">
+        <div class="form-group">
+          <label for="seat">Seat</label>
+          <input
+            type="text"
+            class="form-control"
+            id="seat"
+            name="seat"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            name="price"
+            min="0"
+            required
+          />
+        </div>
+        <input type="hidden" name="flightId" value="<%= flightId %>" />
+        <!-- Hidden field to pass the flightId to the server -->
+        <button type="submit" class="btn btn-primary">Create Ticket</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Details</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Flight Details</h1>
+      <div class="flight-details">
+        <a href="/flights/<%= flight._id %>"
+          ><h2>Airline: <%= flight.airline %></h2></a>
+        <p>Airport: <%= flight.airport %></p>
+        <p>Flight No.: <%= flight.flightNo %></p>
+        <p>Departure: <%= flight.departs.toDateString() %></p>
+      </div>
+      <div class="destinations">
+        <h2>Tickets</h2>
+        <ul>
+          <% ticket.forEach(t => { %>
+          <li>Seat No: <%= t.seat %></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

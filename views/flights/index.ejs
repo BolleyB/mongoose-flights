@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List of Flights</title>
+    <link rel="stylesheet" href="/public/stylesheets/stylein.css" />
+  </head>
+  <body class="text-center">
+    <div class="container">
+      <h1>List of Flights</h1>
+      <table class="flight-table">
+        <thead class="">
+          <tr>
+            <th>Airline</th>
+            <th>Airport</th>
+            <th>Flight No.</th>
+            <th>Departure</th>
+            <th>Actions</th>
+            <!-- Add this column for actions -->
+          </tr>
+        </thead>
+        <tbody>
+          <% flights.forEach(flight => { %>
+
+          <td><%= flight.airline %></td>
+          <td><%= flight.airport %></td>
+          <td><%= flight.flightNo %></td>
+          <td><%= flight.departs.toDateString() %></td>
+          <td>
+            <!-- Link to create ticket for this flight -->
+            <a href="/flights/<%= flight._id %>">See Tickets</a>
+            <a href="/flights/<%= flight._id %>/tickets/new">Create Ticket</a>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <!-- New Flight link -->
+      <a href="/flights/new">New Flight</a>
+    </div>
+  </body>
+</html>
